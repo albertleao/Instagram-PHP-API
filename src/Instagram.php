@@ -130,6 +130,23 @@ class Instagram
         throw new InstagramException("Error: getLoginUrl() - The parameter isn't an array or invalid scope permissions used.");
     }
 
+
+    /**
+     * Performs call to Instagram API without syntactic sugar.
+     *
+     * @param $method
+     * @param $endpoint
+     * @param array $params
+     *
+     * @return mixed
+     *
+     * @throws InstagramException
+     */
+    public function request($method, $endpoint, $params = [])
+    {
+        return $this->_makeCall($endpoint, $params, $method);
+    }
+
     /**
      * Search for a user.
      *
